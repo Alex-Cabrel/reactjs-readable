@@ -7,14 +7,13 @@ import Categories from './components/Categories'
 import Posts from './components/Posts'
 import Post from './components/Post'
 import Home from 'react-icons/lib/fa/home'
-import Like from 'react-icons/lib/fa/thumbs-up'
 import './App.css';
 
 
-{/*The main component of the App. It uses the Route component 
+/*The main component of the App. It uses the Route component 
 to ensure that a user can clearly navigate through the app using URLs*/
 
-/*This component uses composing to call components likes Posts, Category and Categories*/}
+/*This component uses composing to call components likes Posts, Category and Categories*/
 class App extends Component {
 
   render() {
@@ -59,15 +58,15 @@ class App extends Component {
 }
 
 
-{/*Binds the Components' state to its' properties*/}
+/*Binds the Components' state to its' properties*/
 const mapStateToProps = (state) => ({
   categories: state.category.categories ? state.category.categories : [],
   posts: state.post.posts ? state.post.posts : []
 })
 
-{/*Here, the method mapDispatchToProps maps the dispatch function
+/*Here, the method mapDispatchToProps maps the dispatch function
 to the properties of the Component Post. The various actions are been executed 
-by the dispatch function and the results assinged to the properties */}
+by the dispatch function and the results assinged to the properties */
 
 const mapDispatchToProps = dispatch => {
   return {

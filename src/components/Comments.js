@@ -95,7 +95,7 @@ Defines what happens when the modal is closed */
                     >
 
                     {this.state.error && <span className="error">Body and Author are required</span>}
-                    /*Form to comment on a post*/
+                    {/*Form to comment on a post*/}
                     <form onSubmit={this.handleSubmit}>
                         <label>Comment
                             <textarea rows="4" cols="50" id="body" name="body" placeholder="Enter your comment concerning this post here"
@@ -112,22 +112,22 @@ Defines what happens when the modal is closed */
                 </Modal>
 
                 {this.props.comments.map((comment, i) => <div key={comment.id}><div className="listComments">
-                    /*Displaying a clickable thumbs up icon from font awesome*/ 
+                    {/*Displaying a clickable thumbs up icon from font awesome*/ }
                     <Upvote size={15} onClick={e => {
                         e.preventDefault()
                         this.props.onCommentVote(comment.id, 'upVote')
                     }}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    /*Displaying a clickable thumb down icon from font awesome*/
+                    {/*Displaying a clickable thumb down icon from font awesome*/}
                     <DownVote size={15} onClick={e => {
                         e.preventDefault()
                         this.props.onCommentVote(comment.id, 'downVote')
                     }}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    /*Displaying a clickable edit icon from google's material design*/
+                    {/*Displaying a clickable edit icon from google's material design*/}
                     <Edit size={15} onClick={e => {
                         e.preventDefault()
                         this.editComment(comment)
                     }}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   /* Displaying a clickable delete icon from google material design(md)*/
+                   {/* Displaying a clickable delete icon from google material design(md)*/}
                     <Delete size={15} onClick={e => {
                         e.preventDefault()
                         this.props.onDeleteComment(comment)

@@ -116,6 +116,23 @@ This method is invoked when a user clicks on the icon to delete the post*/
       var submitBtnStyle = {
         background:'#fff222',
       }
+      if (!this.state.voteScore){
+        /*return(<NotFound/>)*/
+        return (
+          <center>
+            <div class="error-page-wrap">
+              <article class="error-page gradient">
+                <hgroup>
+                  <h1>404</h1>
+                  <h2>oops! We cannot get the post at the moment</h2>
+                </hgroup>
+                <button><a href="/" title="Back to Home" class="error-back">Back</a></button>
+              </article>
+            </div>
+          </center>
+          )
+      } 
+      else {
         return (
             <div>
                 <br />
@@ -167,7 +184,7 @@ This method is invoked when a user clicks on the icon to delete the post*/
                 {this.state.editingMode && <h4>Vote Score: {this.state.voteScore}</h4>}
                 {this.state.editingMode && <h4>Timestamp: {new Date(this.state.timestamp).toLocaleString()}</h4>}
                 {this.state.error && <span className="error">Title, Body and Author are required</span>}
-                /*This is the form for creating a post*/ 
+                {/*This is the form for creating a post*/ }
                 <form onSubmit={this.handleSubmit}>
                     <label>Title of the Post
                       <input type="text" id="title" name="title" placeholder="Give a title to your post"
@@ -195,6 +212,7 @@ This method is invoked when a user clicks on the icon to delete the post*/
                 }
             </div>
         )
+      }
     }
   }
 

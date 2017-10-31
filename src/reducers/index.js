@@ -49,9 +49,17 @@ const post = (state = {}, action) => {
                 selectedIndex: -1
             })
         case GET_POST:
-            return Object.assign({}, state, {
+
+        /*Ensure that access to undefined resources are properly handled*/
+            try {
+                return Object.assign({}, state, {
                 selectedIndex: state.posts.findIndex(p => p.id === action.postId)
-            })
+            })} 
+            catch(error){
+                console.log("This is the error we are getting since ............................JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ" + error)
+                return state
+                }
+
         case ADD_POST:
             return Object.assign({}, state, {
                 posts: [...state.posts, action.post]
